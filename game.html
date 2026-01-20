@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacker!</title>
+    <link href="styles/game.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Stacker Game!</h1>
+        <h4>Difficulty: ---</h4>
+    </header>
+    <main>
+        <section class="game">
+            <div id="stacker">
+            </div>
+        </section>
+        <section class="text">                    
+            <article class="instructions">
+                <p>Press space to stop the block. See how high you can stack!</p>
+            </article>
+            <article class="stats">
+                <h3>Stats</h3>
+
+            </article>
+        </section>
+    </main>
+
+    <section class="overlay">
+        <article>
+            <h2 class="win">You Win!</h2>
+            <h2 class="lose">You Lose!</h2>
+            <h2 class="welcome">Welcome!</h2>
+            <input type="text" name="user" id="user">
+            <section class="difButtons">
+                <h3>Choose your difficulty:</h3>
+                <div class="buttons">
+                    <button class="dif" id="easy">Easy</button>
+                    <button class="dif" id="normal">Normal</button>
+                    <button class="dif" id="hard">Hard</button>
+                    <button class="dif" id="impossible">Impossible</button>
+                </div>
+            </section>
+        </article>
+    </section>
+</body>
+<script src="scripts/game.js"></script>
+</html>

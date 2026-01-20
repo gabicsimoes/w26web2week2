@@ -1,0 +1,306 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/***********************************************************
+					Fonts
+***********************************************************/
+
+@font-face {
+    font-family: 'vtksanimal2Regular';
+    src: url('../fonts/vtks_animal_2-webfont.eot');
+    src: url('../fonts/vtks_animal_2-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/vtks_animal_2-webfont.woff') format('woff'),
+         url('../fonts/vtks_animal_2-webfont.ttf') format('truetype'),
+         url('../fonts/vtks_animal_2-webfont.svg#vtksanimal2Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/***********************************************************
+					Basics
+***********************************************************/
+html{
+	font-size:10px; /* set a default font size to make rem calculations easier */
+}
+
+/***********************************************************
+					Headers
+***********************************************************/
+
+h1{
+	font-size:4.8rem; /* 4.8rem = 4.8 x 10px = 48px */
+    font-family: 'vtksanimal2Regular';
+	text-align:center;
+	padding:1rem 0;
+	position:relative;
+	z-index:20;
+}
+
+h2{
+	font-size:3.2rem;
+    font-family: 'vtksanimal2Regular';
+}
+
+h3{
+	font-size:2.2rem;
+    font-family: 'vtksanimal2Regular';
+}
+
+h4{
+	font-size:1.9rem;
+    font-family: 'vtksanimal2Regular';
+	text-align:center;
+	padding-bottom:1rem;
+}
+
+/***********************************************************
+					Main
+***********************************************************/
+main{
+	/*use flexbox to keep the game centred in the screen */
+}
+
+.game{
+	/* use flex-basis to set a fixed width for this flexed element */
+	position:relative;
+	width:100%;
+	height:48rem;
+
+	/* use grid to structure the game's background
+	and stretch it across the width of the game */	
+}
+
+.bg-block{
+	border:0.2rem solid #666;
+	background-color:#999;
+    box-shadow:inset 0 0 0.5rem #666;
+}
+
+#stacker{
+	position:absolute;
+	width:100%;	
+	height:48rem;
+	z-index:5;
+	top:0;
+	left:0;
+	/* use flexbox to make the rows stack from the bottom */
+}
+
+.row{
+	/* note: some elements are not built into the html,
+	but are added by script.
+	Use your dev tools window to see these elements on the page */
+	position:relative;
+	width:100%;
+	height:6rem;
+}
+
+.active{
+	background-color:rgba(255,0,0,0.3);
+}
+
+.block{
+	display:block;
+	width:6rem;
+	height:6rem;
+	background-color:#006;
+	position:absolute;
+	top:0;
+	left:0;
+}
+
+.active .block{	
+	animation-name:blockAnimation;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+
+/*****************************************
+			Animations
+*****************************************/
+@keyframes blockAnimation{
+	0%{ left:0; }
+	50%{ left:calc(100% - 6rem); }
+	100%{ left:0; }
+}
+
+/*****************************************
+			Stats
+*****************************************/
+
+.text{
+	/* use flex-basis to set a fixed width for this flexed item */
+	padding-left:1em;
+	font-size:1.6rem;
+}
+
+.instructions{
+	margin-top:2rem;
+	font-size:1.7rem;
+	font-weight:bold;
+}
+
+.stats h3{
+	margin:1.6rem 0;
+}
+
+.stats p{
+	line-height:1.4;
+}
+
+.stats h5{
+	font-weight:bold;
+	font-size:1.9rem;
+	margin:0.8rem 0;
+}
+
+.stats h6{
+	font-weight:bold;
+	margin:.96rem 0 0.48rem;
+}
+
+.stats span{
+	padding:0 0.8rem;
+}
+
+/*****************************************
+			Overlays
+*****************************************/
+.overlay{	
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	z-index:10;
+	display:none;
+	background:rgba(255,255,255,0.8);
+	/* use justify-content to centre the contents of a flexed item */
+}
+
+.overlay.show{
+	display:block;
+	/* use flexbox to centre the content of the overlay */
+}
+
+.overlay article{
+	margin-top:20rem;
+}
+
+.overlay h2{
+	text-align:center;
+	display:none;
+}
+
+.overlay h2.show{
+	display:block;
+}
+
+.lose{	
+	border-top:2px solid #600;
+	border-bottom:2px solid #600;
+	background:rgba(255,128,128,0.7);
+	color:#300;
+}
+
+.win{
+	border-top:2px solid #060;
+	border-bottom:2px solid #060;
+	background:rgba(128,255,128,0.7);
+	color:#030;
+}
+
+.difButtons{
+	margin-top:1.6rem;
+}
+
+.buttons{
+	/* use flexbox to distribute the buttons across the overlay */
+	padding:1.6rem 0;
+}
+
+button{
+	padding:0.8rem;
+	font-size:1.4rem;
+}
+
+.overlay input{
+	display:block;
+	box-sizing:border-box;
+	margin:1.6rem 0;
+	font-size:1.9rem;
+	padding:0.64rem;
+	width:100%;
+}
+
+.overlay input.error{
+	background:rgb(255,128,128);
+}
+
+
+/*****************************************
+			Media Queries
+*****************************************/
+
+@media screen and (min-height: 800px){
+	html{
+		font-size:12px;
+	}
+}
+
+@media screen and (min-height: 1200px){
+	html{
+		font-size:20px;
+	}
+}
+
+
+

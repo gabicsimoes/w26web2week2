@@ -215,13 +215,21 @@ main{
 *****************************************/
 .overlay{
 	/* use position to make the overlay appear over everything else */
+	position: fixed; /* position only when you need for specific spot, not the entire page */
+	top: 0;
+	left: 0;
+	width: 100vw; /* vw stands for viewport widht */
+	height: 100vh; 
+	z-index: 10; /* z-index is a 3D stacking order, like layers, so 10 = 10º layer */
+
 	display:none;
 	background:rgba(255,255,255,0.8);
 	/* use justify-content to centre the contents of a flexed item */
+	justify-content: center;
 }
 
 .overlay.show{
-	display:block;
+	display:flex;
 	/* use flexbox to centre the content of the overlay */
 }
 
@@ -257,7 +265,10 @@ main{
 }
 
 .buttons{
+	background-color: aqua;
 	/* use flexbox to distribute the buttons across the overlay */
+	display: flex;
+	justify-content: space-evenly;
 	padding:1.6rem 0;
 }
 

@@ -117,7 +117,11 @@ main{
 	height:48rem;
 
 	/* use grid to structure the game's background
-	and stretch it across the width of the game */	
+	and stretch it across the width of the game */
+	display: grid;
+	grid-template-columns: repeat(7, 1fr); /* create 7 columns, each 1 fraction (fr) wide */
+	/* grid-template-rows: repeat(8, 1fr); this is one solution to space evenly by height, if you know how many rows */
+	align-content: stretch; /* this tells the content to stretch to fill the whole height */
 }
 
 .bg-block{
@@ -134,6 +138,8 @@ main{
 	top:0;
 	left:0;
 	/* use flexbox to make the rows stack from the bottom */
+	display: flex;
+	flex-direction: column-reverse;
 }
 
 .row{
@@ -300,6 +306,17 @@ button{
 *****************************************/
 
 /* use media queries to make this responsive */
+@media screen and (min-height:800px){
+	html{
+		font-size: 12.5px;
+	}
+}
+
+@media screen and (min-height:1200px){
+	html{
+		font-size: 15px;
+	}
+}
 
 
 

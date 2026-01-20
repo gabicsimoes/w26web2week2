@@ -105,10 +105,13 @@ h4{
 ***********************************************************/
 main{
 	/*use flexbox to keep the game centred in the screen */
+	display: flex;
+	justify-content: center;
 }
 
 .game{
 	/* use flex-basis to set a fixed width for this flexed element */
+	flex-basis: 42rem; /* rem based on the root font size: 43rem= 42 x 10px = 420px*/
 	position:relative;
 	width:100%;
 	height:48rem;
@@ -177,6 +180,7 @@ main{
 
 .text{
 	/* use flex-basis to set a fixed width for this flexed item */
+	flex-basis: 25rem;
 	padding-left:1em;
 	font-size:1.6rem;
 }

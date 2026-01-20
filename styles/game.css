@@ -80,8 +80,7 @@ h1{
     font-family: 'vtksanimal2Regular';
 	text-align:center;
 	padding:1rem 0;
-	position:relative;
-	z-index:20;
+	/* use position and z-index to make this title appear over everything */
 }
 
 h2{
@@ -214,13 +213,8 @@ main{
 /*****************************************
 			Overlays
 *****************************************/
-.overlay{	
-	position:fixed;
-	width:100%;
-	height:100%;
-	top:0;
-	left:0;
-	z-index:10;
+.overlay{
+	/* use position to make the overlay appear over everything else */
 	display:none;
 	background:rgba(255,255,255,0.8);
 	/* use justify-content to centre the contents of a flexed item */
